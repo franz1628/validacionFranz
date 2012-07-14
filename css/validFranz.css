@@ -1,0 +1,51 @@
+span.imgTool{
+	display 	:	none;
+	position 	:	relative;
+	top			:	10px;
+	font-size	:	13px;
+	z-index		:	100;
+}
+	.imgTool span.tool{
+		border 		: 	1px solid black;
+		border-radius : 7px;
+		left 		: 	32px;
+		min-height	: 	10px;
+		padding-left: 	9px;
+		position 	: 	absolute;
+		top			: 	-30px;
+		width		: 	130px;
+		word-wrap	:	break-word;
+	}
+	.infoTool{
+		position 	:	absolute;
+		left		:	5px;
+		top	 		:	-12px;
+		background: url(images/info.png);
+		width: 20px;
+		height: 20px;
+	}
+	.corrTool{
+		position 	:	absolute;
+		left		:	5px;
+		top	 		:	-12px;
+		background: url(images/correcto.png);
+		width: 20px;
+		height: 20px;
+	}
+	.alerTool{
+		position 	:	absolute;
+		left		:	5px;
+		top	 		:	-12px;
+		background: url(images/alerta.png);
+		width: 20px;
+		height: 20px;
+	}
+	.bAlerta{
+		background 	: rgb(245, 143, 143);
+	}
+	.bInfo{
+		background 	: rgb(122, 214, 244);
+	}
+	.bCorrecto{
+		background 	: rgb(167, 227, 167);	
+	}

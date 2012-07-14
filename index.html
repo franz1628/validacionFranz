@@ -1,0 +1,89 @@
+<link rel="stylesheet" href="css/validFranz.css">
+<script src="js/jquery.js"> </script>
+<script src="js/validFranz.js"> </script>
+<script>
+	$(function(){
+		var opciones = {
+	    		".txt_name1":{
+	    			required 	: 	true,
+	    			msgRequired	: 	"debe tener de 3 a 10",
+	    			msgInfo		: 	"Coloca un nombre",
+	    			msgCorrecto : 	"Dato Correcto",
+	    			cadenaFra 	: 	" abcdefghijklmnñopqrstuvwxyzáéíóú",
+	    			min 		: 	3,
+	    			max 		: 	10
+
+	    		},
+	    		".txt_name2":{
+	    			email		: 	true, 
+	    			msgRequired	: 	"Escriba un email correcto",
+	    			msgInfo		: 	"Coloca tu email",
+	    			msgCorrecto : 	"Email Correcto"
+	    			
+	    		},
+	    		".miSelect":{
+	    			select 		: 	true,
+	    			msgRequired	: 	"Debe elegir una opci&oacute;n",
+	    			msgInfo		: 	"Eliga una opci&oacute;n",
+	    			msgCorrecto : 	"Dato escogido"
+
+	    		},
+	    		".miCheck":{
+	    			checkbox 	: 	true,
+	    			msgRequired	: 	"Acepta las condiciones",
+	    			msgInfo		: 	"Condiciones y terminos",
+	    			msgCorrecto : 	"Correcto"
+	    		},
+	    		".miRadio":{
+	    			radio 	: 	true,
+	    			msgRequired	: 	"Debe escoger una opci&oacute;n",
+	    			msgInfo		: 	"Escoga una opci&oacute;n",
+	    			msgCorrecto : 	"dato escogido"
+	    		}
+	    	};
+			$("#miForm").franz(opciones);
+  
+	});
+</script>
+
+<body>
+	<br><br>
+	<form id="miForm">
+		<div>
+			Nombre : <input type="text" class="txt_name1">
+		</div>
+		<br>
+		<br>
+		<div>
+			Correo : <input type="text" class="txt_name2">
+		</div>
+			<br>
+			<br>
+		<div>Elige :
+			<select class="miSelect">
+				<option value>Elegir</option>
+				<option value="1">Franz</option>
+				<option value="2">Wilder</option>
+			</select>
+		</div>	
+		<br>
+			<br>
+		<div>
+			acepta condiciones<input class="miCheck" type="checkbox" > 
+		</div>
+		<br>
+			<br>
+		<div>
+			Escoge	<br>
+			Franz<input class="miRadio" name="miRadio" type="radio" > 
+			 Renzo<input class="miRadio" name="miRadio" type="radio" >
+			Paul<input class="miRadio" name="miRadio" type="radio" > 
+		</div>
+			
+			
+			<input type="reset"><input type="submit" value="Enviar"> 
+		
+	</form>	
+	gualambo@gmail.com
+
+</body>
