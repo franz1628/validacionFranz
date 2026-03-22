@@ -1,89 +1,124 @@
-<link rel="stylesheet" href="css/validFranz.css">
-<script src="js/jquery.js"> </script>
-<script src="js/validFranz.js"> </script>
-<script>
-	$(function(){
-		var opciones = {
-	    		".txt_name1":{
-	    			required 	: 	true,
-	    			msgRequired	: 	"debe tener de 3 a 10",
-	    			msgInfo		: 	"Coloca un nombre",
-	    			msgCorrecto : 	"Dato Correcto",
-	    			cadenaFra 	: 	" abcdefghijklmnñopqrstuvwxyzáéíóú",
-	    			min 		: 	3,
-	    			max 		: 	10
-
-	    		},
-	    		".txt_name2":{
-	    			email		: 	true, 
-	    			msgRequired	: 	"Escriba un email correcto",
-	    			msgInfo		: 	"Coloca tu email",
-	    			msgCorrecto : 	"Email Correcto"
-	    			
-	    		},
-	    		".miSelect":{
-	    			select 		: 	true,
-	    			msgRequired	: 	"Debe elegir una opci&oacute;n",
-	    			msgInfo		: 	"Eliga una opci&oacute;n",
-	    			msgCorrecto : 	"Dato escogido"
-
-	    		},
-	    		".miCheck":{
-	    			checkbox 	: 	true,
-	    			msgRequired	: 	"Acepta las condiciones",
-	    			msgInfo		: 	"Condiciones y terminos",
-	    			msgCorrecto : 	"Correcto"
-	    		},
-	    		".miRadio":{
-	    			radio 	: 	true,
-	    			msgRequired	: 	"Debe escoger una opci&oacute;n",
-	    			msgInfo		: 	"Escoga una opci&oacute;n",
-	    			msgCorrecto : 	"dato escogido"
-	    		}
-	    	};
-			$("#miForm").franz(opciones);
-  
-	});
-</script>
-
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validación Franz - Premium Design</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/validFranz.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/validFranz.js"></script>
+    <script>
+        $(function(){
+            var opciones = {
+                ".txt_name1": {
+                    required: true,
+                    msgRequired: "Debe tener de 3 a 10 caracteres",
+                    msgInfo: "Coloca un nombre",
+                    msgCorrecto: "Dato Correcto",
+                    cadenaFra: " abcdefghijklmnñopqrstuvwxyzáéíóú",
+                    min: 3,
+                    max: 10
+                },
+                ".txt_name2": {
+                    email: true,
+                    msgRequired: "Escriba un email correcto",
+                    msgInfo: "Coloca tu email",
+                    msgCorrecto: "Email Correcto"
+                },
+                ".miSelect": {
+                    select: true,
+                    msgRequired: "Debe elegir una opción",
+                    msgInfo: "Elija una opción",
+                    msgCorrecto: "Dato escogido"
+                },
+                ".miCheck": {
+                    checkbox: true,
+                    msgRequired: "Acepta las condiciones",
+                    msgInfo: "Condiciones y términos",
+                    msgCorrecto: "Correcto"
+                },
+                ".miRadio": {
+                    radio: true,
+                    msgRequired: "Debe escoger una opción",
+                    msgInfo: "Escoja una opción",
+                    msgCorrecto: "Dato escogido"
+                }
+            };
+            $("#miForm").franz(opciones);
+        });
+    </script>
+</head>
 <body>
-	<br><br>
-	<form id="miForm">
-		<div>
-			Nombre : <input type="text" class="txt_name1">
-		</div>
-		<br>
-		<br>
-		<div>
-			Correo : <input type="text" class="txt_name2">
-		</div>
-			<br>
-			<br>
-		<div>Elige :
-			<select class="miSelect">
-				<option value>Elegir</option>
-				<option value="1">Franz</option>
-				<option value="2">Wilder</option>
-			</select>
-		</div>	
-		<br>
-			<br>
-		<div>
-			acepta condiciones<input class="miCheck" type="checkbox" > 
-		</div>
-		<br>
-			<br>
-		<div>
-			Escoge	<br>
-			Franz<input class="miRadio" name="miRadio" type="radio" > 
-			 Renzo<input class="miRadio" name="miRadio" type="radio" >
-			Paul<input class="miRadio" name="miRadio" type="radio" > 
-		</div>
-			
-			
-			<input type="reset"><input type="submit" value="Enviar"> 
-		
-	</form>	
-	gualambo@gmail.com
+    <div class="background-animation"></div>
+    <main class="container">
+        <div class="form-card">
+            <h1>Registro de Usuario</h1>
+            <p class="subtitle">Complete los siguientes campos para continuar</p>
+            
+            <form id="miForm">
+                <div class="input-group">
+                    <label for="nombre">Nombre</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="nombre" class="txt_name1" placeholder="Ej: Juan Pérez">
+                    </div>
+                </div>
 
+                <div class="input-group">
+                    <label for="correo">Correo Electrónico</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="correo" class="txt_name2" placeholder="ejemplo@correo.com">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Preferencia</label>
+                    <div class="input-wrapper">
+                        <select id="preferencia" class="miSelect">
+                            <option value="">Seleccione una opción</option>
+                            <option value="1">Franz</option>
+                            <option value="2">Wilder</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="input-group checkbox-group">
+                    <div class="input-wrapper">
+                        <input class="miCheck" type="checkbox" id="condiciones">
+                        <label for="condiciones">Acepto los términos y condiciones</label>
+                    </div>
+                </div>
+
+                <div class="input-group radio-group">
+                    <label>Escoja un representante</label>
+                    <div class="radio-options">
+                        <div class="radio-item">
+                            <input class="miRadio" name="miRadio" type="radio" id="r1">
+                            <label for="r1">Franz</label>
+                        </div>
+                        <div class="radio-item">
+                            <input class="miRadio" name="miRadio" type="radio" id="r2">
+                            <label for="r2">Renzo</label>
+                        </div>
+                        <div class="radio-item">
+                            <input class="miRadio" name="miRadio" type="radio" id="r3">
+                            <label for="r3">Paul</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="reset" class="btn btn-secondary">Limpiar</button>
+                    <button type="submit" class="btn btn-primary">Enviar Datos</button>
+                </div>
+            </form>
+            
+            <footer class="form-footer">
+                <p>Contacto: <a href="mailto:gualambo@gmail.com">gualambo@gmail.com</a></p>
+            </footer>
+        </div>
+    </main>
 </body>
+</html>

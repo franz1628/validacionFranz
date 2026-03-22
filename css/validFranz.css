@@ -1,51 +1,263 @@
-span.imgTool{
-	display 	:	none;
-	position 	:	relative;
-	top			:	10px;
-	font-size	:	13px;
-	z-index		:	100;
+:root {
+    --primary-color: #6366f1;
+    --primary-hover: #4f46e5;
+    --secondary-color: #94a3b8;
+    --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --input-bg: rgba(255, 255, 255, 0.03);
+    --success: #22c55e;
+    --error: #ef4444;
+    --info: #3b82f6;
 }
-	.imgTool span.tool{
-		border 		: 	1px solid black;
-		border-radius : 7px;
-		left 		: 	32px;
-		min-height	: 	10px;
-		padding-left: 	9px;
-		position 	: 	absolute;
-		top			: 	-30px;
-		width		: 	130px;
-		word-wrap	:	break-word;
-	}
-	.infoTool{
-		position 	:	absolute;
-		left		:	5px;
-		top	 		:	-12px;
-		background: url(images/info.png);
-		width: 20px;
-		height: 20px;
-	}
-	.corrTool{
-		position 	:	absolute;
-		left		:	5px;
-		top	 		:	-12px;
-		background: url(images/correcto.png);
-		width: 20px;
-		height: 20px;
-	}
-	.alerTool{
-		position 	:	absolute;
-		left		:	5px;
-		top	 		:	-12px;
-		background: url(images/alerta.png);
-		width: 20px;
-		height: 20px;
-	}
-	.bAlerta{
-		background 	: rgb(245, 143, 143);
-	}
-	.bInfo{
-		background 	: rgb(122, 214, 244);
-	}
-	.bCorrecto{
-		background 	: rgb(167, 227, 167);	
-	}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--bg-gradient);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 50%);
+    filter: blur(100px);
+    animation: move 20s infinite alternate;
+}
+
+@keyframes move {
+    from { transform: translate(-10%, -10%); }
+    to { transform: translate(10%, 10%); }
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+}
+
+.form-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-align: center;
+    background: linear-gradient(to right, #fff, #94a3b8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.input-group {
+    margin-bottom: 24px;
+}
+
+label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+.input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+input[type="text"],
+select {
+    width: 100%;
+    background: var(--input-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 12px 16px;
+    color: white;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+input[type="text"]:focus,
+select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.checkbox-group .input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox-group label {
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+.radio-group label {
+    margin-bottom: 12px;
+}
+
+.radio-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.radio-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.radio-item label {
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+.btn {
+    flex: 1;
+    padding: 12px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    font-size: 0.95rem;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.4);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.form-footer {
+    margin-top: 32px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.form-footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* Tooltip styles for validFranz.js */
+span.imgTool {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+}
+
+.imgTool span.tool {
+    position: absolute;
+    right: 0;
+    bottom: calc(100% + 15px);
+    width: max-content;
+    max-width: 200px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    color: white;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+    animation: fadeIn 0.2s ease-out;
+}
+
+/* Tooltip triangle */
+.imgTool span.tool::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    right: 15px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: currentColor transparent transparent transparent;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.infoTool, .corrTool, .alerTool {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 10px;
+}
+
+.infoTool { background-image: url(images/info.png); }
+.corrTool { background-image: url(images/correcto.png); }
+.alerTool { background-image: url(images/alerta.png); }
+
+.bAlerta { background: var(--error); color: white; border: none; }
+.bAlerta::after { border-top-color: var(--error) !important; }
+
+.bInfo { background: var(--info); color: white; border: none; }
+.bInfo::after { border-top-color: var(--info) !important; }
+
+.bCorrecto { background: var(--success); color: white; border: none; }
+.bCorrecto::after { border-top-color: var(--success) !important; }
