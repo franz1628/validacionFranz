@@ -20,7 +20,6 @@ Una biblioteca de validación de formularios ligera y altamente personalizable p
 
 ```html
 <link rel="stylesheet" href="css/validFranz.css">
-<script src="js/jquery.js"></script>
 <script src="js/validFranz.js"></script>
 ```
 
